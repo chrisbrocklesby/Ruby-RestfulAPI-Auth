@@ -1,12 +1,9 @@
-###### Post Model #######
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/databases/post_database.db")
-
 class Post
   	include DataMapper::Resource
-	property :id, Serial, :key => true
+		property :id, Serial, :key => true
+		property :user_id, String
   	property :created_at, DateTime
+  	property :modified_at, DateTime
   	property :title, String, :length => 255
-  	property :description, Text
+  	property :content, Text
 end
-
-DataMapper.finalize.auto_upgrade!
