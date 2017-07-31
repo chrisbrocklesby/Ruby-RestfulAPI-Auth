@@ -24,5 +24,6 @@ DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/databases/database.db")
 DataMapper.finalize.auto_upgrade!
 
 ###### Configuration #######
-set :environment, :development 
+set :environment, :development
+set :port, 3000
 set :apiname, 'Test API'
