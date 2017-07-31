@@ -3,6 +3,7 @@ require 'sinatra'
 require 'data_mapper'
 require 'json'
 require 'bcrypt'
+require 'daemons'
 
 ###### Required Helpers #######
 require_relative 'helpers/auth_helper'
