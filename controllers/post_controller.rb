@@ -1,5 +1,5 @@
 ##################### Post - GET All ################### 
-get '/posts' do
+get '/posts/?' do
 	protected!
   content_type :json
   @posts = Post.all(:order => :created_at.desc)
@@ -8,7 +8,7 @@ end
 
 
 ##################### Post - POST ################### 
-post '/post' do
+post '/post/?' do
 	protected!
 	content_type :json
 	jsonbody = JSON.parse(request.body.read)
@@ -24,7 +24,7 @@ end
 
 
 ##################### Post - GET by ID ################### 
-get '/post/:id' do
+get '/post/:id/?' do
 	protected!
   content_type :json
   @post = Post.get(params[:id].to_i)
@@ -40,7 +40,7 @@ end
 
 
 ##################### Post - UPDATE by ID ################### 
-put '/post/:id' do
+put '/post/:id/?' do
 	protected!
   content_type :json
   jsonbody = JSON.parse(request.body.read)
@@ -59,7 +59,7 @@ end
 
 
 ##################### Post - DELETE by ID ################### 
-delete '/post/:id/delete' do
+delete '/post/:id/delete/?' do
 	protected!
   content_type :json
   @post = Post.get(params[:id].to_i)

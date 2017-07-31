@@ -2,7 +2,11 @@ helpers do
 
   ### Get Current User ID ###
   def userID
-    @user = User.first(:token => request.env['HTTP_AUTHORIZATION'])
+    if params[:token]
+    	@user = User.first(:token => params[:token])
+  	else
+  		@user = User.first(:token => request.env['HTTP_AUTHORIZATION'])
+  	end
     return @user.id.to_s
   end
 

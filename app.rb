@@ -15,6 +15,7 @@ require_relative 'models/post_model'
 
 ###### Required Controllers #######
 require_relative 'controllers/app_controller'
+require_relative 'controllers/upload_controller'
 require_relative 'controllers/user_controller'
 require_relative 'controllers/post_controller'
 

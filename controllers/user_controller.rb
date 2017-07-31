@@ -1,5 +1,5 @@
 ##################### User - GET All ################### 
-get '/users' do
+get '/users/?' do
   protected!
   content_type :json
   @users = User.all(:order => :created_at.desc)
@@ -8,7 +8,7 @@ end
 
 
 ##################### User - Register ################### 
-post '/user/register' do
+post '/user/register/?' do
   content_type :json
   jsonbody = JSON.parse(request.body.read)
   jsonbody['password'] = encrypt(jsonbody['password'])
@@ -23,7 +23,7 @@ end
 
 
 ##################### User - Login ################### 
-post '/user/login' do
+post '/user/login/?' do
   content_type :json
   jsonbody = JSON.parse(request.body.read)
   email = jsonbody['email']
@@ -44,7 +44,7 @@ end
 
 
 ##################### User - Logout ################### 
-put '/user/logout' do
+put '/user/logout/?' do
   content_type :json
   jsonbody = JSON.parse(request.body.read)
   email = jsonbody['email']
